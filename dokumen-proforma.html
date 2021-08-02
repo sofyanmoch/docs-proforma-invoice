@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumen Proforma</title>
+</head>
+<style>
+    .container {
+        margin: 10px;
+    }
+
+    #billing {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .no-proforma {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 100%;
+        /* identical to box height, or 10px */
+
+        /* display: flex;
+align-items: center; */
+        letter-spacing: 0.01em;
+    }
+
+    #billing td,
+    #billing th {
+        border-bottom: 1px solid #ddd;
+        padding: 8px;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 100%;
+        /* identical to box height, or 10px */
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    #billing tr:nth-child(even) {
+        background-color: white;
+    }
+
+    /* #billing tr:hover {background-color: #ddd;} */
+
+    #billing th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #F0F2F3;
+        font-family: Noto Sans;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 100%;
+        /* identical to box height, or 11px */
+
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-left {
+        flex: 55%;
+    }
+
+    .flex-right {
+        flex: 45%;
+    }
+
+    .bg-gray {
+        background-color: #DBE0E3;
+    }
+
+    .text-title {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 0.1;
+        /* identical to box height, or 24px */
+
+
+        letter-spacing: 0.01em;
+
+        /* Neutral/6 */
+
+        color: #62717D;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .no-proforma {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        /* identical to box height, or 10px */
+
+
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.01em;
+
+        /* Neutral/6 */
+
+        color: #62717D;
+    }
+
+    .text-company {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 100%;
+        /* identical to box height, or 12px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .company-address {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 100%;
+        /* identical to box height, or 10px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .flex-50 {
+        flex: 50%;
+    }
+
+    .title-summary {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 100%;
+        /* identical to box height, or 12px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .flex-10 {
+        flex: 10%;
+    }
+
+    .flex-20 {
+        flex: 20%;
+    }
+
+    .flex-30 {
+        flex: 30%;
+    }
+
+    .flex-40 {
+        flex: 40%;
+    }
+
+    .flex-60 {
+        flex: 60%;
+    }
+
+    .flex-70 {
+        flex: 70%;
+    }
+
+    .flex-80 {
+        flex: 80%;
+    }
+
+    .flex-90 {
+        flex: 90%;
+    }
+
+    .text-value-summary {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 100%;
+        /* identical to box height, or 10px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .mt-2 {
+        margin-top: 20px;
+    }
+
+    .title-total-bill {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 100%;
+        align-items: center;
+        text-align: right;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .pl-2 {
+        padding-left: 5px;
+    }
+
+    .value-total-bill {
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 100%;
+        padding-right: 5px;
+        /* identical to box height, or 12px */
+
+        align-items: center;
+        text-align: right;
+        letter-spacing: 0.01em;
+
+        color: #000000;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="flex-container">
+            <div class="flex-left">
+                <img style="padding-top: 10px;" class="img-left"
+                    src="https://nx-design-system-web-development.clodeo.com/img/logo/clodeo/regular.svg">
+                <p class="text-company">PT. Clodeo Indonesia Jaya</p>
+                <p class="company-address">Jalan Buah Batu No. 105 A-B, Kel. Turangga, Kec. Lengkong, Bandung, Jawa Barat 40265</p>
+            </div>
+            <div class="flex-right bg-gray">
+                <p class="text-title " style="text-align: center; padding-top: 10px;">Proforma Invoice</p>
+                <p class="no-proforma"><span id="proforma-number"></span></p>
+            </div>
+        </div>
+        <div class="flex-container mt-2">
+            <div class="flex-50">
+                <h4 class="title-summary">Proforma Invoice</h4>
+                <div class="flex-container">
+                    <div class="flex-40">
+                        <p class="text-value-summary">No Proforma</p>
+                        <p class="text-value-summary">Tanggal</p>
+                        <p class="text-value-summary">Deadline Revisi</p>
+                        <p class="text-value-summary">Revisi Ke</p>
+                    </div>
+                    <div class="flex-60">
+                        <p class="text-value-summary">: <span id="proforma-number-1" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="invoice-date" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="due-date" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="revision-number" class="pl-2"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-50">
+                <h4 class="title-summary">Ditagihkan Kepada</h4>
+                <div class="flex-container">
+                    <div class="flex-40">
+                        <p class="text-value-summary">Tenant ID</p>
+                        <p class="text-value-summary">Nama Tenant</p>
+                        <p class="text-value-summary">No. Telepon</p>
+                    </div>
+                    <div class="flex-60">
+                        <p class="text-value-summary">: <span id="tenantid" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="tenant-name" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="phone-number" class="pl-2"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table" style="margin-top: 20px;">
+            <table id="billing">
+                <tr>
+                    <th>Kurir</th>
+                    <th>Qty</th>
+                    <th>Tagihan</th>
+                    <th>Potongan</th>
+                    <th>PPh 23</th>
+                    <th>Asuransi</th>
+                    <th>Sub Total</th>
+                </tr>
+                <tbody id="data-table">
+                    <tr>
+                        <!-- Data disini ngeshownya dari DOM -->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="flex-container">
+                <div class="flex-60"></div>
+                <div class="flex-40">
+                    <div class="flex-container">
+                        <div class="flex-60">
+                            <h3 class="title-total-bill text-right">Total Tagihan</h3>
+                        </div>
+                        <div class="flex-40">
+                            <h3 class="value-total-bill text-right"><span id="total-tagihan" class="pl-2"></span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-dokumen-proforma">
+            <p class="text-value-summary">Jika ada kesalahan mohon segera menghubungi pihak clodeo.</p>
+            <p class="text-value-summary">Customer Support</p>
+            <div class="flex-container">
+                <div class="flex-40">
+                    <div class="flex-container">
+                        <div class="flex-40">
+                            <p class="text-value-summary">Whatsapp</p>
+                            <p class="text-value-summary">Email</p>
+                        </div>
+                        <div class="flex-60">
+                            <p class="text-value-summary">: +62 878 9775 900</p>
+                            <p class="text-value-summary">: support@clodeo.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-60"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./test.js"></script>
+<script>
+    initialData(dataBang)
+    // Init variable data
+    var data;
+    function initialData(dataProforma) {
+        data = dataProforma
+    }
+
+
+    // Fungsi format rupiah
+    function formatCurrency(numb) {
+        const format = numb.toString().split('').reverse().join('');
+        const convert = format.match(/\d{1,3}/g);
+        const rupiah = 'Rp ' + convert.join('.').split('').reverse().join('')
+        // console.log(rupiah)
+        return rupiah;
+    }
+
+    // Fungsi convert UTC to DD-MM-YYYY
+    function formatDate(dateString) {
+        var allDate = dateString.split(' ');
+        var thisDate = allDate[0].split('-');
+        var thisTime = allDate[1].split(':');
+        var newDate = [thisDate[2],thisDate[1],thisDate[0] ].join("-");
+        var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        var tanggal = new Date(thisDate).getDate();
+        var xhari = new Date(thisDate).getDay();
+        var xbulan = new Date(thisDate).getMonth();
+        var xtahun = new Date(thisDate).getYear();
+        var tahun = (xtahun < 1000) ? xtahun + 1900 : xtahun;
+        return hari[xhari] + ', ' + tanggal + ' ' + bulan[xbulan] + ' ' + tahun;
+    }
+
+    const courierSummary = data.Summary.CourierSummary
+
+    // Looping to show data in table
+    var temp = "";
+    courierSummary.forEach((datas) => {
+        temp += "<tr>"; // tag Tr opening
+        temp += "<td>" + "<img style='width: 50px; height: 20px' src='https://nx-design-system-web-development.clodeo.com/img/logo/courier/code/" + datas.CourierCode + ".svg'>" + "</td>"; // Kurir 
+        temp += "<td>" + 1 + "</td>"; // Qty (Masih Dummy)
+        temp += "<td>" + formatCurrency(datas.FixShippingCharge) + "</td>"; // Tagihan
+        temp += "<td>" + formatCurrency(datas.ShippingChargeDiscount) + "</td>"; // Potongan
+        temp += "<td>" + formatCurrency(datas.ShippingChargeDiscountTax) + "</td>"; // PPh 23
+        temp += "<td>" + formatCurrency(datas.FixInsuranceAmount) + "</td>"; // Asuransi
+        temp += "<td class='text-right'>" + formatCurrency(datas.TotalShippingCharge) + "</td></tr>"; // Subtotal + inlude tag Tr Closing
+    });
+    // Tenant Data
+    document.getElementById('data-table').innerHTML = temp;
+    document.getElementById("proforma-number").innerHTML = " " + data.Data.InvoiceNumber;
+    document.getElementById("proforma-number-1").innerHTML = data.Data.InvoiceNumber;
+    document.getElementById("invoice-date").innerHTML = formatDate(data.Data.InvoiceDateUtc);
+    document.getElementById("due-date").innerHTML = formatDate(data.Data.InvoiceDueDateUtc);
+    document.getElementById("revision-number").innerHTML = data.Data.ProformaRevisionCounter;
+    document.getElementById("tenantid").innerHTML = "" + data.Tenant.Id;
+    document.getElementById("tenant-name").innerHTML = data.Tenant.UserName;
+    document.getElementById("phone-number").innerHTML = data.Tenant.PhoneNumber;
+    document.getElementById("total-tagihan").innerHTML = formatCurrency(data.Summary.TotalShippingCharge)
+</script>
+
+</html>
