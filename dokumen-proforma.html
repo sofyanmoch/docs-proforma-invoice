@@ -38,7 +38,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 100%;
         /* identical to box height, or 10px */
         letter-spacing: 0.01em;
@@ -60,7 +60,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: italic;
         font-weight: normal;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 100%;
         /* identical to box height, or 11px */
 
@@ -127,7 +127,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 100%;
         /* identical to box height, or 12px */
 
@@ -142,7 +142,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 100%;
         /* identical to box height, or 10px */
 
@@ -161,7 +161,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 100%;
         /* identical to box height, or 12px */
 
@@ -208,7 +208,7 @@ align-items: center; */
         font-family: Noto Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 100%;
         /* identical to box height, or 10px */
 
@@ -259,6 +259,9 @@ align-items: center; */
     .text-right {
         text-align: right;
     }
+    .text-12px {
+        font-size: 12px;
+    }
 </style>
 
 <body>
@@ -268,7 +271,7 @@ align-items: center; */
                 <img style="padding-top: 10px;" class="img-left"
                     src="https://nx-design-system-web-development.clodeo.com/img/logo/clodeo/regular.svg">
                 <p class="text-company">PT. Clodeo Indonesia Jaya</p>
-                <p class="company-address">Jalan Buah Batu No. 105 A-B, Kel. Turangga, Kec. Lengkong, Bandung, Jawa Barat 40265</p>
+                <p class="company-address" style="line-height: 1.2;">Jalan Buah Batu No. 105 A-B, Kel. Turangga, Kec. Lengkong, <br />Bandung, Jawa Barat 40265</p>
             </div>
             <div class="flex-right bg-gray">
                 <p class="text-title " style="text-align: center; padding-top: 10px;">Proforma Invoice</p>
@@ -280,13 +283,13 @@ align-items: center; */
                 <h4 class="title-summary">Proforma Invoice</h4>
                 <div class="flex-container">
                     <div class="flex-40">
-                        <p class="text-value-summary">No Proforma</p>
+                        <p class="text-value-summary ">No Proforma</p>
                         <p class="text-value-summary">Tanggal</p>
                         <p class="text-value-summary">Deadline Revisi</p>
                         <p class="text-value-summary">Revisi Ke</p>
                     </div>
                     <div class="flex-60">
-                        <p class="text-value-summary">: <span id="proforma-number-1" class="pl-2"></span></p>
+                        <p class="text-value-summary">: <span id="proforma-number-1" class="pl-2 text-12px"></span></p>
                         <p class="text-value-summary">: <span id="invoice-date" class="pl-2"></span></p>
                         <p class="text-value-summary">: <span id="due-date" class="pl-2"></span></p>
                         <p class="text-value-summary">: <span id="revision-number" class="pl-2"></span></p>

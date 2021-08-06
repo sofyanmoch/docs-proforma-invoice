@@ -125,7 +125,7 @@ align-items: center; */
             font-family: Noto Sans;
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
+            font-size: 11px;
             line-height: 100%;
             /* identical to box height, or 12px */
 
@@ -141,7 +141,7 @@ align-items: center; */
             font-family: Noto Sans;
             font-style: normal;
             font-weight: bold;
-            font-size: 12px;
+            font-size: 11px;
             line-height: 100%;
             /* identical to box height, or 12px */
 
@@ -159,7 +159,11 @@ align-items: center; */
 
         .text-center {
             text-align: center;
+            font-size: 11px;
         }
+        /* #billing tbody td {
+            font-size: 11px;
+        } */
     </style>
 </head>
 
@@ -255,32 +259,6 @@ align-items: center; */
                 "ShippingChargeDiscountTax": 0,
                 "TotalShippingCharge": 17455,
                 "TransactionSummary": [
-                    {
-                        "TenantId": 1245,
-                        "CourierCode": "anteraja",
-                        "TransactionId": "60a77123e97d9ce1f77ee713",
-                        "ShippingTrackingNumber": "10000004742430",
-                        "FixInsuranceAmount": 480,
-                        "FixShippingCharge": 17500,
-                        "ShippingChargeDiscountPercentage": 3,
-                        "ShippingChargeDiscount": 525,
-                        "ShippingChargeDiscountTaxPercentage": 0,
-                        "ShippingChargeDiscountTax": 0,
-                        "TotalShippingCharge": 17455
-                    },
-                    {
-                        "TenantId": 1245,
-                        "CourierCode": "anteraja",
-                        "TransactionId": "60a77123e97d9ce1f77ee713",
-                        "ShippingTrackingNumber": "10000004742430",
-                        "FixInsuranceAmount": 480,
-                        "FixShippingCharge": 17500,
-                        "ShippingChargeDiscountPercentage": 3,
-                        "ShippingChargeDiscount": 525,
-                        "ShippingChargeDiscountTaxPercentage": 0,
-                        "ShippingChargeDiscountTax": 0,
-                        "TotalShippingCharge": 17455
-                    },
                     {
                         "TenantId": 1245,
                         "CourierCode": "anteraja",
@@ -401,9 +379,10 @@ align-items: center; */
     var x = "", i;
     const table = document.getElementById("billing-table")
     courierSummary.map((datas, i) => {
+        console.log(datas)
         // x = x + "<h" + i + ">Heading  " + i + "</h" + i + ">";
-        x += "<div id='courier-logo'>" + "<img style='width: 60px; height: 30px' src='https://nx-design-system-web-development.clodeo.com/img/logo/courier/code/" + datas.CourierCode + ".svg'></div>"
-        x += "<div id='billing-table' style='margin-top: 10px'>"
+        x += "<div id='courier-logo'>" + "<img style='width: 70px; height: 50px' src='https://nx-design-system-web-development.clodeo.com/img/logo/courier/code/" + datas.CourierCode + ".svg'></div>"
+        x += "<div id='billing-table' style='margin-top: -5px'>"
         x += "<table id='billing'>";
         x += "<tr>";
         x += "<th>No</th>";
@@ -430,7 +409,7 @@ align-items: center; */
         x += "<div class='flex-60'></div>"
         x += "<div class='flex-40'>"
         x += '<div class="flex-container">';
-        x += '<div class="flex-60"><h3 class="title-total-bill">Total Tagihan</h3></div>'
+        x += `<div class="flex-60"><h3 class="title-total-bill">Total Tagihan ${datas.CourierCode}</h3></div>`
         x += '<div class="flex-40"><h3 class="value-total-bill">'+ formatCurrency(datas.TotalShippingCharge) +'</h3></div>'
         x += '</div>'
         x += "</div>"
